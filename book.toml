@@ -1,0 +1,14 @@
+[book]
+authors = ["Georgii Plotnikov"]
+language = "en"
+multilingual = false
+src = "src"
+title = "The Inference Programming Language"
+
+[output.html]
+default-theme = "light"
+preferred-dark-theme = "navy"
+smart-punctuation = true
+definition-lists = true
+admonitions = true
+git-repository-url = "https://github.com/inferara/book"
