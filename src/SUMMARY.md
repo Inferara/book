@@ -1,8 +1,11 @@
 # Summary
 
-- [Introduction](./introduction/introduction.md)
-  - [Installation](./introduction/installation.md)
-  - [Hello World](./introduction/hello-world.md)
+[The Inference Programming Language](title-page.md)
+[Foreword](./foreword.md)
+[Introduction](./introduction.md)
+- [Getting Started](./getting-started/getting-started.md)
+  - [Installation](./getting-started/installation.md)
+  - [Hello World](./getting-started/hello-world.md)
 - [Common Programming Concepts](./common-programming-concepts/common-programming-concepts.md)
   - [Veriables and Mutability](./common-programming-concepts/variables-and-mutability.md)
   - [Data Types](./common-programming-concepts/data-types.md)
