@@ -1,7 +1,9 @@
 # Summary
 
 [The Inference Programming Language](title-page.md)
+
 [Foreword](./foreword.md)
+
 [Introduction](./introduction.md)
 - [Getting Started](./getting-started/getting-started.md)
   - [Installation](./getting-started/installation.md)
