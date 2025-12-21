@@ -42,7 +42,7 @@ New concepts and semantics specific to Inference will be explained thoroughly, w
 
 Read this book in the order it is presented, from start to finish. Each chapter builds upon the previous one and newly introduced concepts will be used in the subsequent chapters.
 
-Additional resources and references are provided in the [appendix](./appendix.md) section for further reading and exploration.
+Additional resources and references are provided in the [appendix](./appendix/appendix.md) section for further reading and exploration.
 
 ## Source Code
 
