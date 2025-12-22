@@ -1,6 +1,6 @@
 # Introduction
 
-You are reading a book about _The Inference Programming Language_. With Inference, you can write highly reliable, mission-critical programs with a high level of confidence that they will behave exactly as intended. Inference is designed from the ground up to support formal verification (FV) of program properties, allowing you to prove code correctness mathematically — with machine-checked proofs of behavior — without needing to learn complex mathematical theories or specialized verification tools. Inference lets you write programs and their specifications in the same language and even in the same file, much like you would do with unit tests.
+You are reading a book about _The Inference Programming Language_. With Inference, you can write highly reliable, mission-critical programs with a high level of confidence that they will behave exactly as intended. Inference is designed from the ground up to support formal verification (FV) of program properties, allowing you to prove code correctness mathematically with machine-checked proofs of behavior without needing to learn complex mathematical theories or specialized verification tools. Inference lets you write programs and their specifications in the same language and even in the same file, much like you would do with unit tests.
 
 ## Who Inference Is For
 
@@ -8,7 +8,7 @@ The key power of Inference is that it has formal verification built-in from the 
 
 ### Teams of Developers
 
-Inference provides a way to rigorously ensure the correctness of code through formal verification. For development teams working on mission-critical applications, this means they can obtain mathematical guarantees that specified properties of their programs always hold, rather than relying solely on testing and code review. This leads to substantially lower residual defect risk, higher quality software, increased reliability, and improved users safety.
+Inference provides a way to rigorously ensure the correctness of code through formal verification. For development teams working on mission-critical applications, this means they can obtain mathematical guarantees that specified properties of their programs always hold, rather than relying solely on testing and code review. This leads to substantially lower residual defect risk, higher quality software, increased reliability, and improved safety of its users.
 
 Examples of such software include, but are not limited to:
 - Cryptographic software and security systems
@@ -20,7 +20,7 @@ Examples of such software include, but are not limited to:
 
 ### Researchers
 
-Traditionally, formal verification has been a complex and specialized field, requiring deep knowledge of mathematical theories and specialized tools. Most of the existing formal verification tools are used by experts from academia and research institutions. Inference lowers the barrier to entry for researchers and provides a unified platform for writing and verifying code, making it easier to explore new ideas and push the boundaries of what is possible with formal verification.
+Traditionally, formal verification has been a complex and specialized field, requiring deep knowledge of mathematical theories and specialized tools. Most of the existing formal verification tools are used by experts from academia and research institutions. Inference lowers the barrier of entry for researchers and provides a unified platform for writing and verifying code, making it easier to explore new ideas and push the boundaries of what is possible with formal verification.
 
 ### Students
 
