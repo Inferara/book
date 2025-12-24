@@ -3,6 +3,7 @@ authors = ["Georgii Plotnikov"]
 language = "en"
 src = "src"
 title = "The Inference Programming Language"
+# The structure of this book and some fragments are taken from "The Rust Programming Language" book. We think it is a great resource for learning programming languages in general, and we are grateful to the Rust team for creating it.
 
 [output.html]
 default-theme = "light"
