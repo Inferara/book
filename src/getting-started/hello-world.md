@@ -35,15 +35,17 @@ To compile an `.inf` file into an executable binary, we use the Inference compil
 
 On Linux or macOS:
 ```bash
-$ infc hello_world.inf
+$ infc --codegen -o hello_world.inf
 ```
 
 On Windows:
 ```powershell
-> infc hello_world.inf
+> infc --codegen -o hello_world.inf
 ```
 
-As a result, the compiler will generate a Wasm binary module named `hello_world.wasm` in the same directory.
+As a result, the compiler will generate a Wasm binary module named `hello_world.wasm` in the `out` directory.
+
+The `--codegen` flag tells the compiler to generate code, and link modules. The `-o` flag tells the compiler to output directory.
 
 ## Running the Program
 
