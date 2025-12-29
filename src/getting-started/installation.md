@@ -31,9 +31,11 @@ On Windows, run the following command in PowerShell:
 ```
 infc-directory
 ├──bin
-│   └── inf-llvm (or inf-llvm.exe on Windows)
-│   └── rust-lld (or rust-lld.exe on Windows)
-└──infc (or infc.exe on Windows)
+│   └── inf-llvm            (or inf-llvm.exe on Windows)
+│   └── rust-lld            (or rust-lld.exe on Windows)
+│──lib                      (Linux only)
+│    └── libLLVM.so.*       (LLVM shared library)
+└──infc                     (or infc.exe on Windows)
 ```
 
 Understading the files:
