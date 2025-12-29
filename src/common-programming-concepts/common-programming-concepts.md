@@ -4,4 +4,4 @@ This chapter covers common programming concepts that are shared across many prog
 
 In this chapter, we cover data types, functions, and comments. Understanding these concepts is essential for writing programs in Inference.
 
-> Inference keywords, data types, and other language constructs are covered in the [Language Reference](../appendix/language-reference.md) appendix.
+> Inference keywords, data types, and other language constructs are covered in the [Language Reference](../appendix/a-language-reference.md) appendix.
