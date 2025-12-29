@@ -26,7 +26,7 @@ On Windows, run the following command in PowerShell:
 > Get-FileHash infc-windows-x86_64.zip -Algorithm SHA256
 ```
 
-`infc` is distributed with required dependencies in a compressed archive. After downloading the appropriate package for your operating system, extract its contents to a directory of your choice. And verify having the following files in the extracted directory:
+`infc` is distributed with required dependencies in a compressed archive. After downloading the appropriate package for your operating system, extract its contents to a directory of your choice. And verify that you have the following files in the extracted directory:
 
 ```
 infc-directory
