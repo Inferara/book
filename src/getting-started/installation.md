@@ -54,6 +54,10 @@ On Windows, open PowerShell, navigate to the extracted `infc` directory, and run
 ```powershell
 > .\check_deps.ps1
 ```
+
+>[!Tip]
+>If you encounter an execution policy error, right click the check_deps.ps1 file in file explorer, select `Properties`, and choosing `Unblock` if that option appears at the bottom of the `Properties` tab.
+
 This script will verify that all necessary dependencies are installed on your system. If any dependencies are missing, the script will ask your permission to install them automatically using `pacman`.
 
 >[!Note]
