@@ -33,8 +33,9 @@ infc-directory
 ├──bin
 │   └── inf-llvm            (or inf-llvm.exe on Windows)
 │   └── rust-lld            (or rust-lld.exe on Windows)
-│──lib                      (Linux only)
+├──lib                      (Linux only)
 │    └── libLLVM.so.*       (LLVM shared library)
+├──check_deps.ps1           (Windows only)
 └──infc                     (or infc.exe on Windows)
 ```
 
@@ -43,17 +44,46 @@ Understading the files:
 - `infc` is the Inference compiler executable;
 - `inf-llvm` is a custom LLVM toolchain used by the Inference compiler to generate binaries;
 - `rust-lld` is a Rust linker used by the Inference compiler to link compiled modules into executable binaries.
+- `libLLVM.so.*` is the LLVM shared library required by `inf-llvm` on Linux systems;
+- `check_deps.ps1` is a PowerShell script to verify that all required dependencies are installed on Windows systems.
+
+## Ensure Required Dependencies are Installed on Windows
+
+On Windows, open PowerShell, navigate to the extracted `infc` directory, and run the following command to check for required dependencies:
+
+```powershell
+> .\check_deps.ps1
+```
+This script will verify that all necessary dependencies are installed on your system. If any dependencies are missing, the script will ask your permission to install them automatically using `pacman`.
+
+>[!Note]
+>The script assumes you have  MSYS2 installed in C:\msys64
+
+As a final result, you should see the following output:
+
+```plaintext
+--- INFC Dependency Check Starting ---
+Directory: D:\GitHub\infc
+[FOUND]    libwinpthread-1.dll (in PATH: C:\msys64\ucrt64\bin\libwinpthread-1.dll)
+[FOUND]    libffi-8.dll (in PATH: C:\msys64\ucrt64\bin\libffi-8.dll)
+[FOUND]    libgcc_s_seh-1.dll (in PATH: C:\msys64\ucrt64\bin\libgcc_s_seh-1.dll)
+[FOUND]    libzstd.dll (in PATH: C:\msys64\ucrt64\bin\libzstd.dll)
+[FOUND]    zlib1.dll (in PATH: C:\msys64\ucrt64\bin\zlib1.dll)
+---------------------------------
+SUCCESS: All identified dependencies are present.
+Ready to run Inference
+```
 
 ## Add `infc` to your system PATH:
 
 On Linux/macOS, add the following line to your shell configuration file (e.g., `~/.bashrc`, `~/.zshrc`):
 
 ```bash
-export PATH=$PATH:/path/to/infc
+$ export PATH=$PATH:/path/to/infc
 ```
 
 On Windows, run the following command in PowerShell:
 
 ```powershell
-$env:Path += ";C:\path\to\infc"
+> $env:Path += ";C:\path\to\infc"
 ```
