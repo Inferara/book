@@ -1,6 +1,6 @@
 # Installation
 
-To install Inference you need to download binary files for your operating system from the [`infc` GitHub Releases page](https://github.com/inference/infc/releases).
+To install Inference you need to download binary files for your operating system from the [`infc` GitHub Releases page](https://github.com/Inferara/inference/releases).
 
 >**Command Line Notation**
 >
