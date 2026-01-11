@@ -6,10 +6,16 @@ To install Inference you need to download binary files for your operating system
 >
 > In this book, commands you should type in a terminal start with `$`. Do not type the `$` itself; it is just the prompt. Lines without `$` show the output of the previous command. PowerShell examples use `>` instead of `$`.
 
-## Installing Inference on Linux
+## Installing Inference on Linux and macOS
 
+Installation on Linux is as simple as downloading the release artifact, extracting it, and adding an executable `infc` to your system PATH.
+
+>[!Note]
+> `infc`is compiled for apple silicon cpu architecture, so if you are using an Intel-based mac, you may need to run it under Rosetta 2 or build from source.
 
 ## Installing Inference on Windows
+
+For Windows, some additional libraries are required to run `infc`. If you already have some other LLVM-based tools installed, you may already have the required dependencies. Otherwise, there is a PowerShell script included in the `infc` package that can check for and install any missing dependencies using the MSYS2 package manager.
 
 ## Verifying Downloaded Package
 
