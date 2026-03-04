@@ -1,99 +1,89 @@
 # Installation
 
-To install Inference you need to download binary files for your operating system from the [`infc` GitHub Releases page](https://github.com/Inferara/inference/releases).
+To install Inference you need to download the compiler binary for your operating system from the [`infc` GitHub Releases page](https://github.com/Inferara/inference/releases).
 
->**Command Line Notation**
+> **Command Line Notation**
 >
 > In this book, commands you should type in a terminal start with `$`. Do not type the `$` itself; it is just the prompt. Lines without `$` show the output of the previous command. PowerShell examples use `>` instead of `$`.
 
-## Installing Inference on Linux and macOS
+## Downloading the Compiler
 
-Installation on Linux is as simple as downloading the release artifact, extracting it, and adding an executable `infc` to your system PATH.
+The Inference compiler (`infc`) is distributed as a single standalone binary with no external dependencies. It compiles Inference source code directly to WebAssembly without requiring any additional tools for compilation.
 
->[!Note]
-> `infc`is compiled for apple silicon cpu architecture, so if you are using an Intel-based mac, you may need to run it under Rosetta 2 or build from source.
+Download the appropriate package for your operating system from the [GitHub Releases](https://github.com/Inferara/inference/releases) page.
 
-## Installing Inference on Windows
+## Installing on Linux and macOS
 
-For Windows, some additional libraries are required to run `infc`. If you already have some other LLVM-based tools installed, you may already have the required dependencies. Otherwise, there is a PowerShell script included in the `infc` package that can check for and install any missing dependencies using the MSYS2 package manager.
-
-## Verifying Downloaded Package
-
-To verify the integrity of the downloaded package, you can check its SHA256 checksum. The checksum value is provided on the `infc` GitHub Releases page alongside the download links.
-
-On Linux/macOS, run the following command in the terminal:
+Download the release archive, extract it, and you will find the `infc` binary:
 
 ```bash
-$ sha256sum infc-linux-x86_64.tar.gz
+$ tar xzf infc-linux-x64.tar.gz
 ```
-On Windows, run the following command in PowerShell:
+
+## Installing on Windows
+
+Download the zip archive and extract it. You will find the `infc.exe` binary. No additional libraries or dependencies are required.
+
+## Package Contents
+
+After extracting the archive, you will have:
+
+```
+infc            (or infc.exe on Windows)
+```
+
+That's it — just the compiler binary. The Inference compiler generates WebAssembly modules directly, with no external toolchain needed.
+
+## Verifying the Download
+
+To verify the integrity of the downloaded package, check its SHA256 checksum. The checksum is listed on the GitHub Releases page.
+
+On Linux/macOS:
+
+```bash
+$ sha256sum infc-linux-x64.tar.gz
+```
+
+On Windows:
 
 ```powershell
-> Get-FileHash infc-windows-x86_64.zip -Algorithm SHA256
+> Get-FileHash infc-windows-x64.zip -Algorithm SHA256
 ```
 
-`infc` is distributed with required dependencies in a compressed archive. After downloading the appropriate package for your operating system, extract its contents to a directory of your choice. And verify that you have the following files in the extracted directory:
-
-```
-infc-directory
-├──bin
-│   └── inf-llvm            (or inf-llvm.exe on Windows)
-│   └── rust-lld            (or rust-lld.exe on Windows)
-├──lib                      (Linux only)
-│    └── libLLVM.so.*       (LLVM shared library)
-├──check_deps.ps1           (Windows only)
-└──infc                     (or infc.exe on Windows)
-```
-
-Understading the files:
-
-- `infc` is the Inference compiler executable;
-- `inf-llvm` is a custom LLVM toolchain used by the Inference compiler to generate binaries;
-- `rust-lld` is a Rust linker used by the Inference compiler to link compiled modules into executable binaries.
-- `libLLVM.so.*` is the LLVM shared library required by `inf-llvm` on Linux systems;
-- `check_deps.ps1` is a PowerShell script to verify that all required dependencies are installed on Windows systems.
-
-## Ensure Required Dependencies are Installed on Windows
-
-On Windows, open PowerShell, navigate to the extracted `infc` directory, and run the following command to check for required dependencies:
-
-```powershell
-> .\check_deps.ps1
-```
-
->[!Tip]
->If you encounter an execution policy error, right click the check_deps.ps1 file in file explorer, select `Properties`, and choosing `Unblock` if that option appears at the bottom of the `Properties` tab.
-
-This script will verify that all necessary dependencies are installed on your system. If any dependencies are missing, the script will ask your permission to install them automatically using `pacman`.
-
->[!Note]
->The script assumes you have  MSYS2 installed in C:\msys64
-
-As a final result, you should see the following output:
-
-```plaintext
---- INFC Dependency Check Starting ---
-Directory: D:\GitHub\infc
-[FOUND]    libwinpthread-1.dll (in PATH: C:\msys64\ucrt64\bin\libwinpthread-1.dll)
-[FOUND]    libffi-8.dll (in PATH: C:\msys64\ucrt64\bin\libffi-8.dll)
-[FOUND]    libgcc_s_seh-1.dll (in PATH: C:\msys64\ucrt64\bin\libgcc_s_seh-1.dll)
-[FOUND]    libzstd.dll (in PATH: C:\msys64\ucrt64\bin\libzstd.dll)
-[FOUND]    zlib1.dll (in PATH: C:\msys64\ucrt64\bin\zlib1.dll)
----------------------------------
-SUCCESS: All identified dependencies are present.
-Ready to run Inference
-```
-
-## Add `infc` to your system PATH:
+## Adding `infc` to your PATH
 
 On Linux/macOS, add the following line to your shell configuration file (e.g., `~/.bashrc`, `~/.zshrc`):
 
 ```bash
-$ export PATH=$PATH:/path/to/infc
+$ export PATH=$PATH:/path/to/infc-directory
 ```
 
 On Windows, run the following command in PowerShell:
 
 ```powershell
-> $env:Path += ";C:\path\to\infc"
+> $env:Path += ";C:\path\to\infc-directory"
 ```
+
+> [!Tip]
+> If you use the `infs` toolchain manager, it handles PATH configuration automatically. See [Appendix D - infs CLI Reference](../appendix/d-infs-reference.md) for details.
+
+## Installing a WebAssembly Runtime
+
+To run compiled WebAssembly modules, you need a WASM runtime. This book uses [wasmtime](https://wasmtime.dev/), a popular and easy-to-use runtime. Visit its [official website](https://wasmtime.dev/) for installation instructions.
+
+> [!Note]
+> `wasmtime` is only needed if you want to execute compiled programs locally. The Inference compiler itself does not require it.
+
+## Editor Support
+
+Inference has an official Visual Studio Code extension that provides syntax highlighting and language support. You can install it from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=inference-lang.inference) or search for "Inference" in the VS Code extensions panel.
+
+## Verifying the Installation
+
+Once installed, verify that the compiler is available:
+
+```bash
+$ infc --version
+```
+
+You should see the compiler version printed in the terminal.

@@ -1,17 +1,45 @@
 # Data Types
 
-Inference is a statically typed language, which means every value and variable must have a known type at compile time. This allows the compiler to catch type-related errors early in the development process, leading to more reliable and maintainable code.
+Inference is a statically typed language — every value and variable must have a known type at compile time.
 
 ## Integer Types
 
-An integer is a numeric type that represents whole numbers without fractional components. We already encountered the `i32` integer type in the [Hello World](../getting-started/hello-world.md) example. The leading `i` stands for "integer," and the number `32` indicates how many bits are used to represent the value. The highest-order bit is used for the sign: `0` for non-negative values and `1` for negative values. Thus, the standard calculation for the range of values that can be represented by a signed integer type is from `-2^(n-1)` to `2^(n-1) - 1`, where `n` is the number of bits.
+Inference supports both signed and unsigned integer types:
 
-Integer types are language primitives and cannot be extended or modified. Inference supports the following integer types:
+| Length (in bits) | Signed | Unsigned |
+|------------------|--------|----------|
+| 8                | `i8`   | `u8`     |
+| 16               | `i16`  | `u16`    |
+| 32               | `i32`  | `u32`    |
+| 64               | `i64`  | `u64`    |
 
-| Length (in bits) | Type name|
-|------------------|----------|
-| `32`             | `i32`    |
+```inference
+let small: i8 = 127;
+let byte: u8 = 255;
+let number: i32 = 42;
+let big: i64 = 1000000;
+let positive: u32 = 0;
+```
+
+`i32` is the most common integer type and maps directly to a 32-bit integer in WebAssembly.
+
+## Boolean Type
+
+```inference
+let flag: bool = true;
+let done: bool = false;
+```
+
+## Array Type
+
+Fixed-size arrays are written as `[T; N]`, where `T` is the element type and `N` is a compile-time constant:
+
+```inference
+let numbers: [i32; 3] = [1, 2, 3];
+```
+
+See [Arrays](../arrays/arrays.md) for full coverage.
 
 ## Floating-Point Types
 
-Inference does not support floating-point types. Instead, it focuses on integer and fixed-point arithmetic to ensure determinism and precision in computations. This design choice is particularly important for applications requiring high assurance and correctness.
+Inference does not support floating-point types. It uses integer arithmetic to ensure determinism and precision in computations.
