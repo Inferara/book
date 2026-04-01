@@ -8,6 +8,9 @@ To install Inference you need to download the compiler binary for your operating
 
 ## Downloading the Compiler
 
+> [!Tip]
+> If you prefer automated installation with PATH configuration, use the `infs` toolchain manager instead: `infs install`. See [Appendix D - infs CLI Reference](../appendix/d-infs-reference.md) for details.
+
 The Inference compiler (`infc`) is distributed as a single standalone binary with no external dependencies. It compiles Inference source code directly to WebAssembly without requiring any additional tools for compilation.
 
 Download the appropriate package for your operating system from the [GitHub Releases](https://github.com/Inferara/inference/releases) page.
@@ -84,6 +87,7 @@ Once installed, verify that the compiler is available:
 
 ```bash
 $ infc --version
+$ infs version
 ```
 
-You should see the compiler version printed in the terminal.
+You should see the version printed in the terminal.

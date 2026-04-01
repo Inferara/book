@@ -40,6 +40,33 @@ let numbers: [i32; 3] = [1, 2, 3];
 
 See [Arrays](../arrays/arrays.md) for full coverage.
 
+## Struct Type
+
+User-defined types with named fields:
+
+```inference
+struct Point {
+    x: i32;
+    y: i32;
+}
+
+let p: Point = Point { x: 10, y: 20 };
+```
+
+Structs support methods via `impl` blocks — see [Functions](functions.md) for details.
+
+## Enum Type
+
+A type with a fixed set of named variants:
+
+```inference
+enum Color { Red, Green, Blue }
+
+let c: Color = Color::Red;
+```
+
+See [Enums](../enums/enums.md) for full coverage.
+
 ## Floating-Point Types
 
 Inference does not support floating-point types. It uses integer arithmetic to ensure determinism and precision in computations.

@@ -13,6 +13,9 @@ All return `bool`. Work with all integer types. Sign-aware: `i32` uses signed co
 | `>`      | `a > b`    |
 | `>=`     | `a >= b`   |
 
+> [!Note]
+> Enum values support `==` and `!=` only.
+
 ## Logical Operators
 
 Operate on `bool` values:

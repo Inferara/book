@@ -4,18 +4,31 @@
 
 | Keyword  | Description |
 |----------|-------------|
-| `fn`     | Defines a function. |
-| `pub`    | Marks a function as publicly exported from the compiled WebAssembly module. |
-| `return` | Returns a value from a function. |
-| `let`    | Declares a local variable. |
-| `mut`    | Makes a variable or function parameter mutable (reassignable). |
-| `const`  | Declares a compile-time constant. |
-| `if`     | Begins a conditional statement. |
-| `else`   | Defines the branch taken when an `if` condition is false. |
-| `loop`   | Begins an infinite or conditional loop. |
-| `break`  | Exits the innermost enclosing `loop`. |
-| `true`   | Boolean literal for the true value. |
-| `false`  | Boolean literal for the false value. |
+| `fn`       | Defines a function. |
+| `pub`      | Marks a function as publicly exported from the compiled WebAssembly module. |
+| `return`   | Returns a value from a function. |
+| `let`      | Declares a local variable. |
+| `mut`      | Makes a variable or function parameter mutable (reassignable). |
+| `const`    | Declares a compile-time constant. |
+| `if`       | Begins a conditional statement. |
+| `else`     | Defines the branch taken when an `if` condition is false. |
+| `loop`     | Begins an infinite or conditional loop. |
+| `break`    | Exits the innermost enclosing `loop`. |
+| `true`     | Boolean literal for the true value. |
+| `false`    | Boolean literal for the false value. |
+| `struct`   | Defines a user-defined type with named fields. |
+| `impl`     | Defines methods and associated functions for a type. |
+| `self`     | References the current instance in a method. |
+| `enum`     | Defines an enumeration type. |
+| `type`     | Defines a type alias. |
+| `forall`   | Non-deterministic block where all computation paths are reachable. |
+| `exists`   | Non-deterministic block where at least one computation path is reachable. |
+| `assume`   | Filters execution paths inside a non-deterministic block. |
+| `unique`   | Non-deterministic block where exactly one computation path is reachable. |
+| `spec`     | Specification block for formal verification. |
+| `external` | Declares an external function. |
+| `use`      | Imports declarations from another module. |
+| `module`   | Declares a module. |
 
 ## Data Types
 
@@ -31,6 +44,8 @@
 | `u64`     | 64-bit unsigned integer. Range: 0 to 18,446,744,073,709,551,615. |
 | `bool`    | Boolean type. Values: `true` or `false`. |
 | `[T; N]`  | Fixed-size array of `N` elements of type `T`. Both `T` and `N` must be known at compile time. |
+| `struct`  | User-defined type with named fields. Defined with `struct Name { field: Type; ... }`. |
+| `enum`  | Enumeration type with named variants. Defined with `enum Name { Variant1, Variant2, ... }`. |
 
 ## Operators
 
@@ -61,6 +76,9 @@ Comparison operators evaluate to a `bool` value.
 | `>`      | Greater than | `a > b` |
 | `>=`     | Greater than or equal to | `a >= b` |
 
+> [!Note]
+> Enum values support only `==` and `!=`. Ordering comparisons (`<`, `<=`, `>`, `>=`) require numeric types.
+
 ### Logical Operators
 
 Logical operators work on `bool` values and produce a `bool` result.
@@ -83,3 +101,10 @@ Bitwise operators work on the binary representation of integer values.
 | `~`      | Bitwise NOT (unary complement) | `~a` |
 | `<<`     | Left shift | `a << b` |
 | `>>`     | Right shift | `a >> b` |
+
+### Access Operators
+
+| Operator | Description | Example |
+|----------|-------------|---------|
+| `.`      | Member access (field or method) | `point.x`, `counter.get()` |
+| `::`     | Type-associated access | `Point::new()` |

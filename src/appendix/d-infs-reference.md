@@ -9,33 +9,50 @@
 | `infs build <file>` | Compile an Inference source file to WebAssembly |
 | `infs run <file>` | Build and execute with wasmtime |
 
-### Build Flags
+### Build Options
 
-| Flag | Description |
-|------|-------------|
-| `--parse` | Parse only (syntax check) |
-| `--analyze` | Run type checking |
-| `--codegen` | Generate WebAssembly |
-| `-o` | Write WASM binary to the `out/` directory |
-| `-v` | Generate Rocq (.v) translation file |
+`infs build` always runs the full compilation pipeline (parse, analyze, codegen) and writes `out/<name>.wasm`.
 
-When no flags are given, `infs build` performs full compilation and writes the WASM binary to disk — equivalent to `--codegen -o`.
+| Option | Description |
+|--------|-------------|
+| `-v` | Also generate Rocq (.v) translation file |
+
+### Run Options
+
+| Option | Description |
+|--------|-------------|
+| `--entry-point <NAME>` | Function to invoke (default: `main`) |
+| `[ARGS]...` | Arguments passed to the invoked function |
 
 ### Examples
 
 ```bash
-# Full compilation (default)
+# Full compilation (writes out/example.wasm)
 $ infs build example.inf
 
-# Parse only (syntax check)
-$ infs build example.inf --parse
-
-# Type checking
-$ infs build example.inf --analyze
+# Compile with Rocq translation (writes out/example.wasm and out/example.v)
+$ infs build example.inf -v
 
 # Build and run
 $ infs run example.inf
+
+# Run a specific exported function
+$ infs run example.inf --entry-point my_function
 ```
+
+### Using `infc` Directly
+
+The underlying `infc` compiler accepts additional flags for selective phase execution:
+
+| Flag | Description |
+|------|-------------|
+| `--parse` | Parse only (syntax check) |
+| `--analyze` | Run type checking and semantic analysis |
+| `--codegen` | Generate WebAssembly |
+| `-o` | Write WASM binary to the `out/` directory |
+| `-v` | Generate Rocq (.v) translation file |
+
+When no flags are given, `infc` performs full compilation and writes the WASM binary — equivalent to `--codegen -o`.
 
 ## Project Management
 
@@ -145,3 +162,5 @@ When running `build` or `run`, `infs` locates the `infc` compiler using the foll
 |----------|---------|
 | `INFC_PATH` | Explicit path to `infc` binary (highest priority) |
 | `INFERENCE_HOME` | Toolchain installation directory (default: `~/.inference`) |
+| `INFS_NO_TUI` | Disable interactive TUI |
+| `INFS_DIST_SERVER` | Distribution server URL (default: `https://inference-lang.org`) |

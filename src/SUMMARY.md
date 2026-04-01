@@ -23,6 +23,7 @@
 - [Arrays](./arrays/arrays.md)
   - [Array Basics](./arrays/basics.md)
   - [Arrays and Functions](./arrays/arrays-and-functions.md)
+- [Enums](./enums/enums.md)
 - [Appendix](./appendix/appendix.md)
   - [A - Language Reference](./appendix/a-language-reference.md)
   - [B - Language Specification](./appendix/b-language-specification.md)

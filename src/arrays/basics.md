@@ -2,7 +2,7 @@
 
 ## Declaration
 
-Array type is `[T; N]`, where `T` is the element type and `N` is a compile-time constant. Supported element types: all integers and `bool`. Every element must be provided at initialization.
+Array type is `[T; N]`, where `T` is the element type and `N` is a compile-time constant. Supported element types: all integers, `bool`, struct types, and arrays (for multidimensional arrays). Every element must be provided at initialization.
 
 ```inference
 let numbers: [i32; 3] = [10, 20, 30];

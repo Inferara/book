@@ -45,3 +45,37 @@ pub fn example() -> i32 {
 ## Function Body
 
 A function body is a sequence of statements enclosed in curly braces `{}`.
+
+## Methods
+
+Methods are functions defined inside an `impl` block. Instance methods take `self` as the first parameter:
+
+```inference
+struct Counter {
+    value: i32;
+}
+
+impl Counter {
+    fn new() -> Counter {
+        return Counter { value: 0 };
+    }
+
+    fn get(self) -> i32 {
+        return self.value;
+    }
+
+    fn increment(mut self) {
+        self.value = self.value + 1;
+    }
+}
+```
+
+Call instance methods with dot syntax and associated functions with `::`:
+
+```inference
+pub fn example() -> i32 {
+    let mut c: Counter = Counter::new();
+    c.increment();
+    return c.get();
+}
+```
