@@ -9,6 +9,7 @@ WORKDIR /src
 
 COPY book.toml ./
 COPY src ./src
+COPY theme ./theme
 
 RUN mdbook build
 
