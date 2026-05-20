@@ -8,7 +8,7 @@ The expression `@` (read *uzumaki*) is a value attribute that represents **every
 error[A006]: uzumaki (@) is only valid inside a non-deterministic block
 ```
 
-## A minimal use
+## A minimal example
 
 Below, `square` is the executable function we want to reason about. `SquareProps` is a `spec` block whose single property claims that for every `i32` value of `x`, `square(x)` is at least zero. `let x: i32 = @;` binds `x` to the whole `i32` domain; the surrounding `forall` requires the final `assert` to hold for every one of those values — except those the inner `assume` filters out.
 

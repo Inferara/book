@@ -50,6 +50,8 @@ A function body is a sequence of statements enclosed in curly braces `{}`.
 
 Methods are declared **inside the struct body**, after the field list. Instance methods take `self` (or `mut self`) as the first parameter. Associated functions omit `self` and are called with `::`.
 
+In the code example below, the **v** tab shows the Rocq translation of the Inference code, which is used for formal verification.
+
 <div class="ifc-tabs">
 <div class="ifc-tab-bar">
 <button class="ifc-tab active">inf</button>

@@ -8,7 +8,7 @@ The key power of Inference is that it has formal verification built-in from the 
 
 ### Developer Teams
 
-Inference provides a way to rigorously ensure the correctness of code through formal verification. For development teams working on mission-critical applications, this means they can obtain mathematical guarantees that specified properties of their programs always hold, rather than relying solely on testing and code review. This leads to substantially lower residual defect risk, higher quality software, increased reliability, and improved safety of its users.
+Inference provides a way to rigorously ensure the correctness of code through formal verification. Development teams working on mission-critical applications can obtain mathematical guarantees that specified properties of their programs always hold, rather than relying solely on testing and code review. This leads to substantially lower residual defect risk, higher quality software, increased reliability, and improved safety of its users.
 
 Examples of such software include, but are not limited to:
 - Cryptographic software and security systems
