@@ -53,7 +53,7 @@ struct Point {
 let p: Point = Point { x: 10, y: 20 };
 ```
 
-Structs support methods via `impl` blocks — see [Functions](functions.md) for details.
+Methods are declared inside the struct body, after the fields — see [Functions](functions.md) for details.
 
 ## Enum Type
 

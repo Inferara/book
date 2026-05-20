@@ -1,0 +1,62 @@
+/* Compilation-result tabs (inf / wat / v).
+   Markup:
+     <div class="ifc-tabs">
+       <div class="ifc-tab-bar">
+         <button class="ifc-tab active">inf</button>
+         <button class="ifc-tab">wat</button>
+         <button class="ifc-tab">v</button>
+       </div>
+       <div class="ifc-tab-panel active">…</div>
+       <div class="ifc-tab-panel">…</div>
+       <div class="ifc-tab-panel">…</div>
+     </div>
+*/
+
+.ifc-tabs {
+  margin: 1em 0;
+  border: 1px solid var(--theme-popup-border, #ccc);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.ifc-tab-bar {
+  display: flex;
+  background: var(--sidebar-bg, #f5f5f5);
+  border-bottom: 1px solid var(--theme-popup-border, #ccc);
+}
+
+.ifc-tab {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-right: 1px solid var(--theme-popup-border, #ccc);
+  padding: 0.35em 1em;
+  font-family: var(--mono-font, monospace);
+  font-size: 0.85em;
+  color: inherit;
+  cursor: pointer;
+  user-select: none;
+}
+
+.ifc-tab:hover {
+  background: var(--theme-hover, rgba(0, 0, 0, 0.05));
+}
+
+.ifc-tab.active {
+  background: var(--theme-popup-bg, #fff);
+  font-weight: bold;
+}
+
+.ifc-tab-panel {
+  display: none;
+  padding: 0 0.8em;
+}
+
+.ifc-tab-panel.active {
+  display: block;
+}
+
+/* Tighten inner code-block spacing inside a tab panel. */
+.ifc-tab-panel > pre {
+  margin: 0.6em 0;
+}

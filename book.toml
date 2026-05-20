@@ -11,4 +11,6 @@ preferred-dark-theme = "navy"
 smart-punctuation = true
 definition-lists = true
 admonitions = true
+additional-css = ["theme/css/tabs.css"]
+additional-js = ["theme/js/tabs.js"]
 git-repository-url = "https://github.com/inferara/book"

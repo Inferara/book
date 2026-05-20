@@ -11,11 +11,15 @@
 
 ### Build Options
 
-`infs build` always runs the full compilation pipeline (parse, analyze, codegen) and writes `out/<name>.wasm`.
+When no phase flag is given, `infs build` runs the full pipeline and writes `out/<name>.wasm`. The phase flags below stop the pipeline early — supplying one means only that phase (and any required predecessors) runs.
 
 | Option | Description |
 |--------|-------------|
-| `-v` | Also generate Rocq (.v) translation file |
+| `--parse` | Parse only (syntax check). No output file written |
+| `--analyze` | Run parse + type checking and semantic analysis. No output file written |
+| `--codegen` | Run the full pipeline and generate WebAssembly. Use with `-o` to write the binary |
+| `-o` | Write WASM binary to `out/<name>.wasm` (implied when no phase flag is given) |
+| `-v` | Also generate Rocq (`.v`) translation file. Implies `proof` compilation mode — see [Compilation modes](#compilation-modes) below |
 
 ### Run Options
 
@@ -42,17 +46,27 @@ $ infs run example.inf --entry-point my_function
 
 ### Using `infc` Directly
 
-The underlying `infc` compiler accepts additional flags for selective phase execution:
+The underlying `infc` compiler accepts the same phase and output flags as `infs build` and can be invoked standalone — useful for embedding into custom build systems or CI without the toolchain wrapper:
 
-| Flag | Description |
-|------|-------------|
-| `--parse` | Parse only (syntax check) |
-| `--analyze` | Run type checking and semantic analysis |
-| `--codegen` | Generate WebAssembly |
-| `-o` | Write WASM binary to the `out/` directory |
-| `-v` | Generate Rocq (.v) translation file |
+```bash
+$ infc example.inf
+$ infc example.inf --parse
+$ infc example.inf -v
+```
 
 When no flags are given, `infc` performs full compilation and writes the WASM binary — equivalent to `--codegen -o`.
+
+> [!Note]
+> `infc` currently supports single-file compilation only. Multi-file projects and project file (`.infp`) support are planned for future releases.
+
+## Compilation modes
+
+The compiler has two modes that change how `spec` blocks and non-deterministic constructs are handled:
+
+- **`compile`** (default): produces a release-optimized WASM binary intended for execution. `spec` blocks are stripped during codegen, so non-deterministic constructs (`@`, `forall`, `exists`, `assume`, `unique`) that appear only inside `spec` blocks do not reach the output.
+- **`proof`** (implied by `-v`): keeps `spec` functions unoptimized so the structure of the source survives into the Rocq translation. The compiler emits both `out/<name>.wasm` and `out/<name>.v`. The `.v` file is a Rocq (Coq) translation suitable for formal verification.
+
+In other words: use the default mode when you want to run the program; pass `-v` when you want to prove things about it.
 
 ## Project Management
 

@@ -14,21 +14,20 @@
 | `else`     | Defines the branch taken when an `if` condition is false. |
 | `loop`     | Begins an infinite or conditional loop. |
 | `break`    | Exits the innermost enclosing `loop`. |
+| `assert`   | Statement that traps on a `false` condition. |
 | `true`     | Boolean literal for the true value. |
 | `false`    | Boolean literal for the false value. |
-| `struct`   | Defines a user-defined type with named fields. |
-| `impl`     | Defines methods and associated functions for a type. |
+| `struct`   | Defines a user-defined type with named fields and methods. |
 | `self`     | References the current instance in a method. |
 | `enum`     | Defines an enumeration type. |
-| `type`     | Defines a type alias. |
-| `forall`   | Non-deterministic block where all computation paths are reachable. |
-| `exists`   | Non-deterministic block where at least one computation path is reachable. |
+| `forall`   | Non-deterministic block where all computation paths must hold. |
+| `exists`   | Non-deterministic block where at least one computation path must hold. |
 | `assume`   | Filters execution paths inside a non-deterministic block. |
-| `unique`   | Non-deterministic block where exactly one computation path is reachable. |
+| `unique`   | Non-deterministic block where exactly one computation path must hold. |
 | `spec`     | Specification block for formal verification. |
-| `external` | Declares an external function. |
-| `use`      | Imports declarations from another module. |
-| `module`   | Declares a module. |
+
+> [!Note]
+> The grammar reserves `type`, `external`, `use`, and `module` for future use. These are recognised as keywords but the corresponding language features are not yet fully implemented and using them today will result in a compilation error.
 
 ## Data Types
 
