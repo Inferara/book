@@ -46,6 +46,16 @@ On Windows:
 
 The compiler will generate a WebAssembly binary module at `out/hello_world.wasm`.
 
+## Formal Verification and Rocq
+
+A unique feature of the Inference programming language is its focus on *formal verification*. This means you can mathematically prove that your code is correct and follows its specification.
+
+To support this, the compiler can translate your Inference code into **Rocq** (formerly known as Coq), a powerful interactive theorem prover. These translations are stored in files with a `.v` extension.
+
+While you do not need to know Rocq to write and run Inference programs, you will see `.v` files and Rocq translations mentioned throughout this book. Many code examples include a **v** tab that shows how the code is represented for the theorem prover.
+
+For more information on how to generate and use these files, see [Appendix D - Compilation modes](../appendix/d-infs-reference.md#compilation-modes).
+
 > [!Note]
 > You can also use the `infc` compiler directly as an alternative:
 >
